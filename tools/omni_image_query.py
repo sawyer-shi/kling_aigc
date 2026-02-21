@@ -35,6 +35,8 @@ class OmniImageQueryTool(Tool):
             yield self.create_text_message(msg)
             return
 
+        download_image = tool_parameters.get("download_image", "true") == "true"
+
         api_url = f"https://api-beijing.klingai.com/v1/images/omni-image/{task_id}"
         headers = {
             "Authorization": f"Bearer {api_token}",
@@ -43,6 +45,8 @@ class OmniImageQueryTool(Tool):
 
         yield self.create_text_message("🔍 正在查询 Omni-Image 任务...")
         yield self.create_text_message(f"📋 任务ID: {task_id}")
+        if download_image:
+            yield self.create_text_message("⬇️ 图片下载已开启")
 
         try:
             response = requests.get(api_url, headers=headers, timeout=60)
@@ -102,6 +106,25 @@ class OmniImageQueryTool(Tool):
                     url = item.get("url")
                     watermark_url = item.get("watermark_url")
                     yield self.create_text_message(f"#{idx} {url}")
+                    if download_image and url:
+                        yield self.create_text_message("⬇️ 正在下载图片...")
+                        try:
+                            image_response = requests.get(url, timeout=120)
+                            if image_response.status_code == 200:
+                                yield self.create_blob_message(
+                                    blob=image_response.content,
+                                    meta={
+                                        "mime_type": "image/png",
+                                        "filename": f"{task_id}_{idx}.png",
+                                    },
+                                )
+                                yield self.create_text_message("✅ 图片下载完成")
+                            else:
+                                yield self.create_text_message(
+                                    f"❌ 图片下载失败，状态码: {image_response.status_code}"
+                                )
+                        except requests.exceptions.RequestException as exc:
+                            yield self.create_text_message(f"❌ 图片下载失败: {exc}")
                     if watermark_url:
                         yield self.create_text_message(f"水印链接: {watermark_url}")
             if series_images:
@@ -111,6 +134,25 @@ class OmniImageQueryTool(Tool):
                     url = item.get("url")
                     watermark_url = item.get("watermark_url")
                     yield self.create_text_message(f"#{idx} {url}")
+                    if download_image and url:
+                        yield self.create_text_message("⬇️ 正在下载图片...")
+                        try:
+                            image_response = requests.get(url, timeout=120)
+                            if image_response.status_code == 200:
+                                yield self.create_blob_message(
+                                    blob=image_response.content,
+                                    meta={
+                                        "mime_type": "image/png",
+                                        "filename": f"{task_id}_{idx}.png",
+                                    },
+                                )
+                                yield self.create_text_message("✅ 图片下载完成")
+                            else:
+                                yield self.create_text_message(
+                                    f"❌ 图片下载失败，状态码: {image_response.status_code}"
+                                )
+                        except requests.exceptions.RequestException as exc:
+                            yield self.create_text_message(f"❌ 图片下载失败: {exc}")
                     if watermark_url:
                         yield self.create_text_message(f"水印链接: {watermark_url}")
             if images or series_images:

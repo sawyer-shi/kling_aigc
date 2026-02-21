@@ -32,6 +32,27 @@ parameters:
     zh_Hans: 参数 external_task_id
   llm_description: Parameter external_task_id
   form: llm
+- name: download_image
+  type: select
+  required: false
+  label:
+    en_US: Download Image
+    zh_Hans: 下载图片
+  human_description:
+    en_US: "Whether to download generated images"
+    zh_Hans: "是否下载生成图片"
+  llm_description: "Whether to download generated images"
+  form: form
+  default: "true"
+  options:
+  - value: "true"
+    label:
+      en_US: "On"
+      zh_Hans: "开启"
+  - value: "false"
+    label:
+      en_US: "Off"
+      zh_Hans: "关闭"
 extra:
   python:
     source: tools/image_generation_query.py

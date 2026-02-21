@@ -10,49 +10,49 @@ description:
     zh_Hans: 查询可灵Omni视频任务
   llm: Query a Kling Omni-Video task
 parameters:
-- name: task_id
-  type: string
-  required: false
-  label:
-    en_US: Task ID
-    zh_Hans: 任务ID
-  human_description:
-    en_US: Parameter task_id
-    zh_Hans: 参数 task_id
-  llm_description: Parameter task_id
-  form: llm
-- name: external_task_id
-  type: string
-  required: false
-  label:
-    en_US: External Task ID
-    zh_Hans: 自定义任务ID
-  human_description:
-    en_US: Parameter external_task_id
-    zh_Hans: 参数 external_task_id
-  llm_description: Parameter external_task_id
-  form: llm
-- name: download_video
-  type: select
-  required: false
-  label:
-    en_US: Download Video
-    zh_Hans: 下载视频
-  human_description:
-    en_US: "Whether to download the generated video"
-    zh_Hans: "是否下载生成视频"
-  llm_description: "Whether to download the generated video"
-  form: form
-  default: "false"
-  options:
-  - value: "true"
+  - name: task_id
+    type: string
+    required: false
     label:
-      en_US: "On"
-      zh_Hans: "开启"
-  - value: "false"
+      en_US: Task ID
+      zh_Hans: 任务ID
+    human_description:
+      en_US: Parameter task_id
+      zh_Hans: 参数 task_id
+    llm_description: Parameter task_id
+    form: llm
+  - name: external_task_id
+    type: string
+    required: false
     label:
-      en_US: "Off"
-      zh_Hans: "关闭"
+      en_US: External Task ID
+      zh_Hans: 自定义任务ID
+    human_description:
+      en_US: Parameter external_task_id
+      zh_Hans: 参数 external_task_id
+    llm_description: Parameter external_task_id
+    form: llm
+  - name: download_video
+    type: select
+    required: false
+    label:
+      en_US: Download Video
+      zh_Hans: 下载视频
+    human_description:
+      en_US: "Whether to download the generated video"
+      zh_Hans: "是否下载生成视频"
+    llm_description: "Whether to download the generated video"
+    form: form
+    default: "true"
+    options:
+      - value: "true"
+        label:
+          en_US: "On"
+          zh_Hans: "开启"
+      - value: "false"
+        label:
+          en_US: "Off"
+          zh_Hans: "关闭"
 extra:
   python:
     source: tools/omni_video_query.py

@@ -6,8 +6,8 @@ label:
   en_US: "Kling AIGC"
   zh_Hans: "可灵AIGC"
 description:
-  en_US: "Kling AIGC for video, image, audio generation and editing"
-  zh_Hans: "可灵AI视频+图片+音频生成和编辑工具"
+  en_US: "Kling AIGC: Support full-generation and editing operations for images and videos, using the latest Kling models (O3, O1, kling-v3, kling-v2.6, and kling-v2.5)."
+  zh_Hans: "可灵AIGC：支持全套图片+视频的生成、编辑等操作，使用最新的可灵模型(O3、O1、kling-v3以及kling-v2.6、kling-v2.5、kling-v2.1和kling-v2.0)。"
 icon: icon.png
 resource:
   memory: 268435456
