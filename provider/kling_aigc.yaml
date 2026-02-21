@@ -21,6 +21,7 @@ credentials_for_provider:
     help:
       en_US: "Get your Access Key from Kling AI console"
       zh_Hans: "从可灵AI控制台获取你的访问密钥"
+    url: https://app.klingai.com/cn/dev/api-key
   secret_key:
     type: secret-input
     required: true
@@ -33,6 +34,7 @@ credentials_for_provider:
     help:
       en_US: "Get your Secret Key from Kling AI console"
       zh_Hans: "从可灵AI控制台获取你的密钥"
+    url: https://app.klingai.com/cn/dev/api-key
 tools:
   - tools/omni_video_create.yaml
   - tools/omni_video_query.yaml

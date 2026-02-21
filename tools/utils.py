@@ -7,14 +7,14 @@ from datetime import datetime
 from typing import Any, Dict, Iterable, Optional
 
 from dify_plugin.errors.tool import ToolProviderCredentialValidationError
-from provider.keling_ai import KelingAiProvider
+from provider.kling_aigc import KlingAigcProvider
 
 logger = logging.getLogger(__name__)
 
 
 def get_api_token(runtime) -> str:
     credentials = runtime.credentials
-    return KelingAiProvider.get_api_token(credentials)
+    return KlingAigcProvider.get_api_token(credentials)
 
 
 def parse_json_param(value: Any, name: str) -> Optional[Any]:
