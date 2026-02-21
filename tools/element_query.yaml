@@ -3,11 +3,11 @@ identity:
   author: sawyer-shi
   label:
     en_US: Kling Element Query
-    zh_Hans: 可灵主体-查询
+    zh_Hans: 可灵主体形象-查询
 description:
   human:
     en_US: Query custom element
-    zh_Hans: 查询自定义主体
+    zh_Hans: 查询自定义主体形象
   llm: Query custom element
 parameters:
 - name: task_id

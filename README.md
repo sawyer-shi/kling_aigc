@@ -1,6 +1,6 @@
 # Kling AIGC
 
-A Dify plugin that integrates Kling AI for video, image, and audio generation/editing. Includes task creation and query tools for text-to-video, image-to-video, multi-image video, effects, lip sync, audio generation, and image recognition.
+A Dify plugin that integrates Kling AI 3.0 models for video, image, and element generation workflows. Supports omni-video, text-to-video, image-to-video, omni-image, image generation, and element management with task-based queries.
 
 ## Version Information
 
@@ -9,20 +9,43 @@ A Dify plugin that integrates Kling AI for video, image, and audio generation/ed
 - **Compatibility**: Dify Plugin Framework
 - **Python Version**: 3.12
 
+### Version History
+- **v0.0.1** (2026-02-16): Initial release with Kling 3.0 video/image/element tools
+
 ## Quick Start
 
 1. Install the plugin in your Dify environment
 2. Configure your Kling AI credentials (Access Key + Secret Key)
-3. Start creating and querying video/image/audio tasks
+3. Create tasks and query results
 
 ## Key Features
 
-- **Text to Video**: Create and query Kling video tasks
-- **Image to Video**: Single and multi-image video generation
-- **Video Effects**: Effect creation and status query
-- **Lip Sync**: Identify, create, and query lip sync tasks
-- **Audio Tools**: Text-to-audio, video-to-audio, and TTS
-- **Image Tools**: Image generation, expansion, and recognition
+- **Video Generation**: Omni-video, text-to-video, image-to-video
+- **Image Generation**: Omni-image and image generation tasks
+- **Element Management**: Create, query, and delete custom elements
+- **Task Queries**: Single-task query with optional auto-download
+- **Watermark Control**: Optional watermark output
+
+## Core Features
+
+### Video Tools
+
+- **Omni-Video Create**: Multi-shot or single-shot video creation
+- **Text to Video**: Prompt-based video generation
+- **Image to Video**: First-frame / tail-frame and mask support
+- **Video Query**: Task status, URLs, and optional download
+
+### Image Tools
+
+- **Omni-Image Create**: Prompt-based single/series image generation
+- **Image Generation**: Prompt and optional image reference
+- **Image Query**: Task status, URLs, and optional download
+
+### Element Tools
+
+- **Element Create**: Custom subject creation (image/video reference)
+- **Element Query**: Retrieve element status and details
+- **Element Delete**: Remove custom elements
 
 ## Requirements
 
@@ -30,12 +53,23 @@ A Dify plugin that integrates Kling AI for video, image, and audio generation/ed
 - Dify Platform access
 - Kling AI API credentials (Access Key + Secret Key)
 - Required Python packages (installed via requirements.txt):
-  - dify_plugin>=0.2.0,<0.3.0
+  - dify_plugin>=0.2.0
   - requests>=2.31.0
   - PyJWT>=2.8.0
   - Pillow>=9.0.0
 
-## Support
+## Installation & Configuration
 
-- Refer to Kling AI documentation for API details
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Configure Kling AI credentials in plugin settings:
+   - **Access Key**
+   - **Secret Key**
+3. Install the plugin in your Dify environment
+
+## Notes
+
 - Generated assets are retained for 30 days; download promptly
+- Queries support auto-download toggles for media retrieval
