@@ -87,9 +87,9 @@ parameters:
     en_US: Multi Prompt JSON
     zh_Hans: 分镜提示词JSON
   human_description:
-    en_US: Parameter multi_prompt
-    zh_Hans: 参数 multi_prompt
-  llm_description: Parameter multi_prompt
+    en_US: 'JSON string. Example: [{"index":1,"prompt":"...","duration":"5"}]'
+    zh_Hans: 'JSON 字符串。Example: [{"index":1,"prompt":"...","duration":"5"}]'
+  llm_description: 'JSON string. Example: [{"index":1,"prompt":"...","duration":"5"}]'
   form: llm
   options: []
 - name: image_list
@@ -99,9 +99,9 @@ parameters:
     en_US: Reference Images
     zh_Hans: 参考图片
   human_description:
-    en_US: Parameter image_list
-    zh_Hans: 参数 image_list
-  llm_description: Parameter image_list
+    en_US: 'JSON string. Example: [{"image_url":"https://...","type":"first_frame"},{"image_url":"https://...","type":"end_frame"}]'
+    zh_Hans: 'JSON 字符串。Example: [{"image_url":"https://...","type":"first_frame"},{"image_url":"https://...","type":"end_frame"}]'
+  llm_description: 'JSON string. Example: [{"image_url":"https://...","type":"first_frame"},{"image_url":"https://...","type":"end_frame"}]'
   form: form
   options: []
 - name: element_list
@@ -111,9 +111,9 @@ parameters:
     en_US: Element List JSON
     zh_Hans: 主体列表JSON
   human_description:
-    en_US: Parameter element_list
-    zh_Hans: 参数 element_list
-  llm_description: Parameter element_list
+    en_US: 'JSON string. Example: [{"element_id":123}]'
+    zh_Hans: 'JSON 字符串。Example: [{"element_id":123}]'
+  llm_description: 'JSON string. Example: [{"element_id":123}]'
   form: llm
   options: []
 - name: video_list
@@ -123,9 +123,9 @@ parameters:
     en_US: Video List JSON
     zh_Hans: 参考视频JSON
   human_description:
-    en_US: Parameter video_list
-    zh_Hans: 参数 video_list
-  llm_description: Parameter video_list
+    en_US: 'JSON string. Example: [{"video_url":"https://...","refer_type":"base","keep_original_sound":"yes"}]'
+    zh_Hans: 'JSON 字符串。Example: [{"video_url":"https://...","refer_type":"base","keep_original_sound":"yes"}]'
+  llm_description: 'JSON string. Example: [{"video_url":"https://...","refer_type":"base","keep_original_sound":"yes"}]'
   form: llm
   options: []
 - name: sound
@@ -143,11 +143,11 @@ parameters:
   options:
   - value: 'on'
     label:
-      en_US: 'true'
+      en_US: 'On'
       zh_Hans: 开启
   - value: 'off'
     label:
-      en_US: 'false'
+      en_US: 'Off'
       zh_Hans: 关闭
 - name: mode
   type: select
@@ -177,23 +177,23 @@ parameters:
     en_US: Aspect Ratio
     zh_Hans: 画面比例
   human_description:
-    en_US: Parameter aspect_ratio
-    zh_Hans: 参数 aspect_ratio
-  llm_description: Parameter aspect_ratio
+    en_US: 'Options: 16:9, 9:16, 1:1'
+    zh_Hans: 可选：16:9、9:16、1:1
+  llm_description: 'Options: 16:9, 9:16, 1:1'
   form: form
   options:
   - value: '16:9'
     label:
-      en_US: '969'
-      zh_Hans: '969'
+      en_US: '16:9'
+      zh_Hans: '16:9'
   - value: '9:16'
     label:
-      en_US: '556'
-      zh_Hans: '556'
+      en_US: '9:16'
+      zh_Hans: '9:16'
   - value: '1:1'
     label:
-      en_US: '61'
-      zh_Hans: '61'
+      en_US: '1:1'
+      zh_Hans: '1:1'
 - name: duration
   type: string
   required: false
@@ -201,11 +201,64 @@ parameters:
     en_US: Duration
     zh_Hans: 时长
   human_description:
-    en_US: Parameter duration
-    zh_Hans: 参数 duration
-  llm_description: Parameter duration
+    en_US: Video duration in seconds
+    zh_Hans: 视频时长（秒）
+  llm_description: Video duration in seconds
   form: form
-  options: []
+  options:
+  - value: '3'
+    label:
+      en_US: '3'
+      zh_Hans: '3'
+  - value: '4'
+    label:
+      en_US: '4'
+      zh_Hans: '4'
+  - value: '5'
+    label:
+      en_US: '5'
+      zh_Hans: '5'
+  - value: '6'
+    label:
+      en_US: '6'
+      zh_Hans: '6'
+  - value: '7'
+    label:
+      en_US: '7'
+      zh_Hans: '7'
+  - value: '8'
+    label:
+      en_US: '8'
+      zh_Hans: '8'
+  - value: '9'
+    label:
+      en_US: '9'
+      zh_Hans: '9'
+  - value: '10'
+    label:
+      en_US: '10'
+      zh_Hans: '10'
+  - value: '11'
+    label:
+      en_US: '11'
+      zh_Hans: '11'
+  - value: '12'
+    label:
+      en_US: '12'
+      zh_Hans: '12'
+  - value: '13'
+    label:
+      en_US: '13'
+      zh_Hans: '13'
+  - value: '14'
+    label:
+      en_US: '14'
+      zh_Hans: '14'
+  - value: '15'
+    label:
+      en_US: '15'
+      zh_Hans: '15'
+  default: '5'
 - name: watermark
   type: select
   required: false

@@ -35,6 +35,8 @@ class Text2VideoQueryTool(Tool):
             yield self.create_text_message(msg)
             return
 
+        download_video = tool_parameters.get("download_video", "false") == "true"
+
         api_url = f"https://api-beijing.klingai.com/v1/videos/text2video/{task_id}"
         headers = {
             "Authorization": f"Bearer {api_token}",
@@ -43,6 +45,8 @@ class Text2VideoQueryTool(Tool):
 
         yield self.create_text_message("🔍 正在查询文生视频任务...")
         yield self.create_text_message(f"📋 任务ID: {task_id}")
+        if download_video:
+            yield self.create_text_message("⬇️ 下载选项已开启")
 
         try:
             response = requests.get(api_url, headers=headers, timeout=60)
@@ -102,6 +106,25 @@ class Text2VideoQueryTool(Tool):
                 yield self.create_text_message(f"#{idx} 时长: {duration}s")
                 if url:
                     yield self.create_text_message(f"链接: {url}")
+                    if download_video:
+                        yield self.create_text_message("⬇️ 正在下载视频文件...")
+                        try:
+                            video_response = requests.get(url, timeout=120)
+                            if video_response.status_code == 200:
+                                yield self.create_blob_message(
+                                    blob=video_response.content,
+                                    meta={
+                                        "mime_type": "video/mp4",
+                                        "filename": f"{task_id}_{idx}.mp4",
+                                    },
+                                )
+                                yield self.create_text_message("✅ 视频下载完成")
+                            else:
+                                yield self.create_text_message(
+                                    f"❌ 视频下载失败，状态码: {video_response.status_code}"
+                                )
+                        except requests.exceptions.RequestException as exc:
+                            yield self.create_text_message(f"❌ 视频下载失败: {exc}")
                 if watermark_url:
                     yield self.create_text_message(f"水印链接: {watermark_url}")
             yield self.create_text_message("⚠️ 生成的视频将于30天后清理，请及时转存")

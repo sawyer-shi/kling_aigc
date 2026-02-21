@@ -1,26 +1,26 @@
 identity:
-  name: "element_delete"
-  author: "sawyer-shi"
+  name: element_delete
+  author: sawyer-shi
   label:
-    en_US: "Kling Element Delete"
-    zh_Hans: "可灵主体-删除"
+    en_US: Kling Element Delete
+    zh_Hans: 可灵主体-删除
 description:
   human:
-    en_US: "Delete custom element"
-    zh_Hans: "删除自定义主体"
-  llm: "Delete custom element"
+    en_US: Delete custom element
+    zh_Hans: 删除自定义主体
+  llm: Delete custom element
 parameters:
-  - name: element_id
-    type: string
-    required: true
-    label:
-      en_US: Element ID
-      zh_Hans: 主体ID
-    human_description:
-      en_US: "Parameter element_id"
-      zh_Hans: "参数 element_id"
-    llm_description: "Parameter element_id"
-    form: llm
+- name: element_id
+  type: string
+  required: true
+  label:
+    en_US: Element ID
+    zh_Hans: 主体ID
+  human_description:
+    en_US: Parameter element_id
+    zh_Hans: 参数 element_id
+  llm_description: Parameter element_id
+  form: llm
 extra:
   python:
     source: tools/element_delete.py

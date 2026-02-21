@@ -1,37 +1,37 @@
 identity:
-  name: "omni_image_query"
-  author: "sawyer-shi"
+  name: omni_image_query
+  author: sawyer-shi
   label:
-    en_US: "Kling Omni-Image Query"
-    zh_Hans: "可灵Omni图像-查询"
+    en_US: Kling Omni-Image Query
+    zh_Hans: 可灵Omni图像-查询
 description:
   human:
-    en_US: "Query Kling Omni-Image task"
-    zh_Hans: "查询可灵Omni图像任务"
-  llm: "Query Kling Omni-Image task"
+    en_US: Query Kling Omni-Image task
+    zh_Hans: 查询可灵Omni图像任务
+  llm: Query Kling Omni-Image task
 parameters:
-  - name: task_id
-    type: string
-    required: false
-    label:
-      en_US: Task ID
-      zh_Hans: 任务ID
-    human_description:
-      en_US: "Parameter task_id"
-      zh_Hans: "参数 task_id"
-    llm_description: "Parameter task_id"
-    form: llm
-  - name: external_task_id
-    type: string
-    required: false
-    label:
-      en_US: External Task ID
-      zh_Hans: 自定义任务ID
-    human_description:
-      en_US: "Parameter external_task_id"
-      zh_Hans: "参数 external_task_id"
-    llm_description: "Parameter external_task_id"
-    form: llm
+- name: task_id
+  type: string
+  required: false
+  label:
+    en_US: Task ID
+    zh_Hans: 任务ID
+  human_description:
+    en_US: Parameter task_id
+    zh_Hans: 参数 task_id
+  llm_description: Parameter task_id
+  form: llm
+- name: external_task_id
+  type: string
+  required: false
+  label:
+    en_US: External Task ID
+    zh_Hans: 自定义任务ID
+  human_description:
+    en_US: Parameter external_task_id
+    zh_Hans: 参数 external_task_id
+  llm_description: Parameter external_task_id
+  form: llm
 extra:
   python:
     source: tools/omni_image_query.py

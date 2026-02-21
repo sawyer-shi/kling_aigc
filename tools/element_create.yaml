@@ -1,123 +1,123 @@
 identity:
-  name: "element_create"
-  author: "sawyer-shi"
+  name: element_create
+  author: sawyer-shi
   label:
-    en_US: "Kling Element Create"
-    zh_Hans: "可灵主体-创建"
+    en_US: Kling Element Create
+    zh_Hans: 可灵主体-创建
 description:
   human:
-    en_US: "Create custom element"
-    zh_Hans: "创建自定义主体"
-  llm: "Create custom element"
+    en_US: Create custom element
+    zh_Hans: 创建自定义主体
+  llm: Create custom element
 parameters:
-  - name: element_name
-    type: string
-    required: true
+- name: element_name
+  type: string
+  required: true
+  label:
+    en_US: Element Name
+    zh_Hans: 主体名称
+  human_description:
+    en_US: Parameter element_name
+    zh_Hans: 参数 element_name
+  llm_description: Parameter element_name
+  form: llm
+- name: element_description
+  type: string
+  required: true
+  label:
+    en_US: Element Description
+    zh_Hans: 主体描述
+  human_description:
+    en_US: Parameter element_description
+    zh_Hans: 参数 element_description
+  llm_description: Parameter element_description
+  form: llm
+- name: reference_type
+  type: select
+  required: true
+  label:
+    en_US: Reference Type
+    zh_Hans: 参考类型
+  human_description:
+    en_US: Parameter reference_type
+    zh_Hans: 参数 reference_type
+  llm_description: Parameter reference_type
+  form: form
+  options:
+  - value: image_refer
     label:
-      en_US: Element Name
-      zh_Hans: 主体名称
-    human_description:
-      en_US: "Parameter element_name"
-      zh_Hans: "参数 element_name"
-    llm_description: "Parameter element_name"
-    form: llm
-  - name: element_description
-    type: string
-    required: true
+      en_US: Image Refer
+      zh_Hans: 图片主体
+  - value: video_refer
     label:
-      en_US: Element Description
-      zh_Hans: 主体描述
-    human_description:
-      en_US: "Parameter element_description"
-      zh_Hans: "参数 element_description"
-    llm_description: "Parameter element_description"
-    form: llm
-  - name: reference_type
-    type: select
-    required: true
-    label:
-      en_US: Reference Type
-      zh_Hans: 参考类型
-    human_description:
-      en_US: "Parameter reference_type"
-      zh_Hans: "参数 reference_type"
-    llm_description: "Parameter reference_type"
-    form: form
-    options:
-      - value: "image_refer"
-        label:
-          en_US: Image Refer
-          zh_Hans: 图片主体
-      - value: "video_refer"
-        label:
-          en_US: Video Refer
-          zh_Hans: 视频主体
-  - name: element_image_list
-    type: string
-    required: false
-    label:
-      en_US: Element Image List JSON
-      zh_Hans: 主体图片JSON
-    human_description:
-      en_US: "Parameter element_image_list"
-      zh_Hans: "参数 element_image_list"
-    llm_description: "Parameter element_image_list"
-    form: llm
-  - name: element_video_list
-    type: string
-    required: false
-    label:
-      en_US: Element Video List JSON
-      zh_Hans: 主体视频JSON
-    human_description:
-      en_US: "Parameter element_video_list"
-      zh_Hans: "参数 element_video_list"
-    llm_description: "Parameter element_video_list"
-    form: llm
-  - name: element_voice_id
-    type: string
-    required: false
-    label:
-      en_US: Element Voice ID
-      zh_Hans: 主体音色ID
-    human_description:
-      en_US: "Parameter element_voice_id"
-      zh_Hans: "参数 element_voice_id"
-    llm_description: "Parameter element_voice_id"
-    form: form
-  - name: tag_list
-    type: string
-    required: false
-    label:
-      en_US: Tag List JSON
-      zh_Hans: 标签列表JSON
-    human_description:
-      en_US: "Parameter tag_list"
-      zh_Hans: "参数 tag_list"
-    llm_description: "Parameter tag_list"
-    form: llm
-  - name: callback_url
-    type: string
-    required: false
-    label:
-      en_US: Callback URL
-      zh_Hans: 回调地址
-    human_description:
-      en_US: "Parameter callback_url"
-      zh_Hans: "参数 callback_url"
-    llm_description: "Parameter callback_url"
-    form: form
-  - name: external_task_id
-    type: string
-    required: false
-    label:
-      en_US: External Task ID
-      zh_Hans: 自定义任务ID
-    human_description:
-      en_US: "Parameter external_task_id"
-      zh_Hans: "参数 external_task_id"
-    llm_description: "Parameter external_task_id"
-    form: form
+      en_US: Video Refer
+      zh_Hans: 视频主体
+- name: element_image_list
+  type: string
+  required: false
+  label:
+    en_US: Element Image List JSON
+    zh_Hans: 主体图片JSON
+  human_description:
+    en_US: 'JSON string. Example: {"frontal_image":"https://...","refer_images":[{"image_url":"https://..."}]}'
+    zh_Hans: 'JSON 字符串。Example: {"frontal_image":"https://...","refer_images":[{"image_url":"https://..."}]}'
+  llm_description: 'JSON string. Example: {"frontal_image":"https://...","refer_images":[{"image_url":"https://..."}]}'
+  form: llm
+- name: element_video_list
+  type: string
+  required: false
+  label:
+    en_US: Element Video List JSON
+    zh_Hans: 主体视频JSON
+  human_description:
+    en_US: 'JSON string. Example: {"refer_videos":[{"video_url":"https://..."}]}'
+    zh_Hans: 'JSON 字符串。Example: {"refer_videos":[{"video_url":"https://..."}]}'
+  llm_description: 'JSON string. Example: {"refer_videos":[{"video_url":"https://..."}]}'
+  form: llm
+- name: element_voice_id
+  type: string
+  required: false
+  label:
+    en_US: Element Voice ID
+    zh_Hans: 主体音色ID
+  human_description:
+    en_US: Parameter element_voice_id
+    zh_Hans: 参数 element_voice_id
+  llm_description: Parameter element_voice_id
+  form: form
+- name: tag_list
+  type: string
+  required: false
+  label:
+    en_US: Tag List JSON
+    zh_Hans: 标签列表JSON
+  human_description:
+    en_US: 'JSON string. Example: [{"tag_id":"o_102"}]'
+    zh_Hans: 'JSON 字符串。Example: [{"tag_id":"o_102"}]'
+  llm_description: 'JSON string. Example: [{"tag_id":"o_102"}]'
+  form: llm
+- name: callback_url
+  type: string
+  required: false
+  label:
+    en_US: Callback URL
+    zh_Hans: 回调地址
+  human_description:
+    en_US: Parameter callback_url
+    zh_Hans: 参数 callback_url
+  llm_description: Parameter callback_url
+  form: form
+- name: external_task_id
+  type: string
+  required: false
+  label:
+    en_US: External Task ID
+    zh_Hans: 自定义任务ID
+  human_description:
+    en_US: Parameter external_task_id
+    zh_Hans: 参数 external_task_id
+  llm_description: Parameter external_task_id
+  form: form
 extra:
   python:
     source: tools/element_create.py

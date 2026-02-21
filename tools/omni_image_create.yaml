@@ -50,9 +50,9 @@ parameters:
     en_US: Reference Images
     zh_Hans: 参考图片
   human_description:
-    en_US: Parameter image_list
-    zh_Hans: 参数 image_list
-  llm_description: Parameter image_list
+    en_US: 'JSON string. Example: [{"image":"https://..."}]'
+    zh_Hans: 'JSON 字符串。Example: [{"image":"https://..."}]'
+  llm_description: 'JSON string. Example: [{"image":"https://..."}]'
   form: form
   options: []
 - name: element_list
@@ -62,9 +62,9 @@ parameters:
     en_US: Element List JSON
     zh_Hans: 主体列表JSON
   human_description:
-    en_US: Parameter element_list
-    zh_Hans: 参数 element_list
-  llm_description: Parameter element_list
+    en_US: 'JSON string. Example: [{"element_id":123}]'
+    zh_Hans: 'JSON 字符串。Example: [{"element_id":123}]'
+  llm_description: 'JSON string. Example: [{"element_id":123}]'
   form: llm
   options: []
 - name: resolution
@@ -144,48 +144,48 @@ parameters:
     en_US: Aspect Ratio
     zh_Hans: 画面比例
   human_description:
-    en_US: Parameter aspect_ratio
-    zh_Hans: 参数 aspect_ratio
-  llm_description: Parameter aspect_ratio
+    en_US: 'Options: 16:9, 9:16, 1:1, 4:3, 3:4, 3:2, 2:3, 21:9'
+    zh_Hans: 可选：16:9、9:16、1:1、4:3、3:4、3:2、2:3、21:9
+  llm_description: 'Options: 16:9, 9:16, 1:1, 4:3, 3:4, 3:2, 2:3, 21:9'
   form: form
   default: auto
   options:
   - value: auto
     label:
-      en_US: Auto
-      zh_Hans: 智能
+      en_US: auto
+      zh_Hans: auto
   - value: '16:9'
     label:
-      en_US: '969'
-      zh_Hans: '969'
+      en_US: '16:9'
+      zh_Hans: '16:9'
   - value: '9:16'
     label:
-      en_US: '556'
-      zh_Hans: '556'
+      en_US: '9:16'
+      zh_Hans: '9:16'
   - value: '1:1'
     label:
-      en_US: '61'
-      zh_Hans: '61'
+      en_US: '1:1'
+      zh_Hans: '1:1'
   - value: '4:3'
     label:
-      en_US: '243'
-      zh_Hans: '243'
+      en_US: '4:3'
+      zh_Hans: '4:3'
   - value: '3:4'
     label:
-      en_US: '184'
-      zh_Hans: '184'
+      en_US: '3:4'
+      zh_Hans: '3:4'
   - value: '3:2'
     label:
-      en_US: '182'
-      zh_Hans: '182'
+      en_US: '3:2'
+      zh_Hans: '3:2'
   - value: '2:3'
     label:
-      en_US: '123'
-      zh_Hans: '123'
+      en_US: '2:3'
+      zh_Hans: '2:3'
   - value: '21:9'
     label:
-      en_US: '1269'
-      zh_Hans: '1269'
+      en_US: '21:9'
+      zh_Hans: '21:9'
 - name: watermark
   type: select
   required: false
