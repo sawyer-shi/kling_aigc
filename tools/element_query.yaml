@@ -1,0 +1,37 @@
+identity:
+  name: "element_query"
+  author: "sawyer-shi"
+  label:
+    en_US: "Kling Element Query"
+    zh_Hans: "可灵主体-查询"
+description:
+  human:
+    en_US: "Query custom element"
+    zh_Hans: "查询自定义主体"
+  llm: "Query custom element"
+parameters:
+  - name: task_id
+    type: string
+    required: false
+    label:
+      en_US: Task ID
+      zh_Hans: 任务ID
+    human_description:
+      en_US: "Parameter task_id"
+      zh_Hans: "参数 task_id"
+    llm_description: "Parameter task_id"
+    form: llm
+  - name: external_task_id
+    type: string
+    required: false
+    label:
+      en_US: External Task ID
+      zh_Hans: 自定义任务ID
+    human_description:
+      en_US: "Parameter external_task_id"
+      zh_Hans: "参数 external_task_id"
+    llm_description: "Parameter external_task_id"
+    form: llm
+extra:
+  python:
+    source: tools/element_query.py

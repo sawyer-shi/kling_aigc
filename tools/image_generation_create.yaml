@@ -1,0 +1,223 @@
+identity:
+  name: image_generation_create
+  author: sawyer-shi
+  label:
+    en_US: Kling Image Generation Create
+    zh_Hans: 可灵图像生成-创建
+description:
+  human:
+    en_US: Create Kling image generation task
+    zh_Hans: 创建可灵图像生成任务
+  llm: Create Kling image generation task
+parameters:
+- name: prompt
+  type: string
+  required: true
+  label:
+    en_US: Prompt
+    zh_Hans: 提示词
+  human_description:
+    en_US: Parameter prompt
+    zh_Hans: 参数 prompt
+  llm_description: Parameter prompt
+  form: llm
+  options: []
+- name: model_name
+  type: select
+  required: false
+  label:
+    en_US: Model
+    zh_Hans: 模型
+  human_description:
+    en_US: Parameter model_name
+    zh_Hans: 参数 model_name
+  llm_description: Parameter model_name
+  form: form
+  default: kling-v1
+  options:
+  - value: kling-v1
+    label:
+      en_US: kling-v1
+      zh_Hans: kling-v1
+  - value: kling-v1-5
+    label:
+      en_US: kling-v1-5
+      zh_Hans: kling-v1-5
+  - value: kling-v2
+    label:
+      en_US: kling-v2
+      zh_Hans: kling-v2
+  - value: kling-v2-new
+    label:
+      en_US: kling-v2-new
+      zh_Hans: kling-v2-new
+  - value: kling-v2-1
+    label:
+      en_US: kling-v2-1
+      zh_Hans: kling-v2-1
+  - value: kling-v3
+    label:
+      en_US: kling-v3
+      zh_Hans: kling-v3
+- name: negative_prompt
+  type: string
+  required: false
+  label:
+    en_US: Negative Prompt
+    zh_Hans: 负向提示词
+  human_description:
+    en_US: Parameter negative_prompt
+    zh_Hans: 参数 negative_prompt
+  llm_description: Parameter negative_prompt
+  form: llm
+  options: []
+- name: image
+  type: file
+  required: false
+  label:
+    en_US: Reference Image
+    zh_Hans: 参考图片
+  human_description:
+    en_US: Parameter image
+    zh_Hans: 参数 image
+  llm_description: Parameter image
+  form: form
+  options: []
+- name: element_list
+  type: string
+  required: false
+  label:
+    en_US: Element List JSON
+    zh_Hans: 主体列表JSON
+  human_description:
+    en_US: Parameter element_list
+    zh_Hans: 参数 element_list
+  llm_description: Parameter element_list
+  form: llm
+  options: []
+- name: resolution
+  type: select
+  required: false
+  label:
+    en_US: Resolution
+    zh_Hans: 清晰度
+  human_description:
+    en_US: Parameter resolution
+    zh_Hans: 参数 resolution
+  llm_description: Parameter resolution
+  form: form
+  default: 1k
+  options:
+  - value: 1k
+    label:
+      en_US: 1k
+      zh_Hans: 1k
+  - value: 2k
+    label:
+      en_US: 2k
+      zh_Hans: 2k
+- name: n
+  type: number
+  required: false
+  label:
+    en_US: Image Count
+    zh_Hans: 生成数量
+  human_description:
+    en_US: Parameter n
+    zh_Hans: 参数 n
+  llm_description: Parameter n
+  form: form
+  options: []
+- name: aspect_ratio
+  type: select
+  required: false
+  label:
+    en_US: Aspect Ratio
+    zh_Hans: 画面比例
+  human_description:
+    en_US: Parameter aspect_ratio
+    zh_Hans: 参数 aspect_ratio
+  llm_description: Parameter aspect_ratio
+  form: form
+  default: '16:9'
+  options:
+  - value: '16:9'
+    label:
+      en_US: '969'
+      zh_Hans: '969'
+  - value: '9:16'
+    label:
+      en_US: '556'
+      zh_Hans: '556'
+  - value: '1:1'
+    label:
+      en_US: '61'
+      zh_Hans: '61'
+  - value: '4:3'
+    label:
+      en_US: '243'
+      zh_Hans: '243'
+  - value: '3:4'
+    label:
+      en_US: '184'
+      zh_Hans: '184'
+  - value: '3:2'
+    label:
+      en_US: '182'
+      zh_Hans: '182'
+  - value: '2:3'
+    label:
+      en_US: '123'
+      zh_Hans: '123'
+  - value: '21:9'
+    label:
+      en_US: '1269'
+      zh_Hans: '1269'
+- name: watermark
+  type: select
+  required: false
+  label:
+    en_US: Watermark
+    zh_Hans: 水印
+  human_description:
+    en_US: Parameter watermark
+    zh_Hans: 参数 watermark
+  llm_description: Parameter watermark
+  form: form
+  default: 'false'
+  options:
+  - value: 'true'
+    label:
+      en_US: Enabled
+      zh_Hans: 启用
+  - value: 'false'
+    label:
+      en_US: Disabled
+      zh_Hans: 禁用
+- name: callback_url
+  type: string
+  required: false
+  label:
+    en_US: Callback URL
+    zh_Hans: 回调地址
+  human_description:
+    en_US: Parameter callback_url
+    zh_Hans: 参数 callback_url
+  llm_description: Parameter callback_url
+  form: form
+  options: []
+- name: external_task_id
+  type: string
+  required: false
+  label:
+    en_US: External Task ID
+    zh_Hans: 自定义任务ID
+  human_description:
+    en_US: Parameter external_task_id
+    zh_Hans: 参数 external_task_id
+  llm_description: Parameter external_task_id
+  form: form
+  options: []
+extra:
+  python:
+    source: tools/image_generation_create.py

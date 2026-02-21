@@ -1,0 +1,298 @@
+identity:
+  name: text_2_video_create
+  author: sawyer-shi
+  label:
+    en_US: Kling Text to Video Create
+    zh_Hans: 可灵文生视频-创建
+description:
+  human:
+    en_US: Create Kling text-to-video task
+    zh_Hans: 创建可灵文生视频任务
+  llm: Create Kling text-to-video task
+parameters:
+- name: prompt
+  type: string
+  required: true
+  label:
+    en_US: Prompt
+    zh_Hans: 提示词
+  human_description:
+    en_US: Parameter prompt
+    zh_Hans: 参数 prompt
+  llm_description: Parameter prompt
+  form: llm
+  options: []
+- name: model_name
+  type: select
+  required: false
+  label:
+    en_US: Model
+    zh_Hans: 模型
+  human_description:
+    en_US: Parameter model_name
+    zh_Hans: 参数 model_name
+  llm_description: Parameter model_name
+  form: form
+  default: kling-v1
+  options:
+  - value: kling-v1
+    label:
+      en_US: kling-v1
+      zh_Hans: kling-v1
+  - value: kling-v1-6
+    label:
+      en_US: kling-v1-6
+      zh_Hans: kling-v1-6
+  - value: kling-v2-master
+    label:
+      en_US: kling-v2-master
+      zh_Hans: kling-v2-master
+  - value: kling-v2-1-master
+    label:
+      en_US: kling-v2-1-master
+      zh_Hans: kling-v2-1-master
+  - value: kling-v2-5-turbo
+    label:
+      en_US: kling-v2-5-turbo
+      zh_Hans: kling-v2-5-turbo
+  - value: kling-v2-6
+    label:
+      en_US: kling-v2-6
+      zh_Hans: kling-v2-6
+  - value: kling-v3
+    label:
+      en_US: kling-v3
+      zh_Hans: kling-v3
+- name: multi_shot
+  type: select
+  required: false
+  label:
+    en_US: Multi Shot
+    zh_Hans: 多镜头
+  human_description:
+    en_US: Parameter multi_shot
+    zh_Hans: 参数 multi_shot
+  llm_description: Parameter multi_shot
+  form: form
+  default: 'false'
+  options:
+  - value: 'true'
+    label:
+      en_US: Enabled
+      zh_Hans: 启用
+  - value: 'false'
+    label:
+      en_US: Disabled
+      zh_Hans: 禁用
+- name: shot_type
+  type: select
+  required: false
+  label:
+    en_US: Shot Type
+    zh_Hans: 分镜方式
+  human_description:
+    en_US: Parameter shot_type
+    zh_Hans: 参数 shot_type
+  llm_description: Parameter shot_type
+  form: form
+  options:
+  - value: customize
+    label:
+      en_US: Customize
+      zh_Hans: 自定义
+  - value: intelligence
+    label:
+      en_US: Intelligence
+      zh_Hans: 智能分镜
+- name: multi_prompt
+  type: string
+  required: false
+  label:
+    en_US: Multi Prompt JSON
+    zh_Hans: 分镜提示词JSON
+  human_description:
+    en_US: Parameter multi_prompt
+    zh_Hans: 参数 multi_prompt
+  llm_description: Parameter multi_prompt
+  form: llm
+  options: []
+- name: negative_prompt
+  type: string
+  required: false
+  label:
+    en_US: Negative Prompt
+    zh_Hans: 负向提示词
+  human_description:
+    en_US: Parameter negative_prompt
+    zh_Hans: 参数 negative_prompt
+  llm_description: Parameter negative_prompt
+  form: llm
+  options: []
+- name: voice_list
+  type: string
+  required: false
+  label:
+    en_US: Voice List JSON
+    zh_Hans: 音色列表JSON
+  human_description:
+    en_US: Parameter voice_list
+    zh_Hans: 参数 voice_list
+  llm_description: Parameter voice_list
+  form: llm
+  options: []
+- name: sound
+  type: select
+  required: false
+  label:
+    en_US: Sound
+    zh_Hans: 生成声音
+  human_description:
+    en_US: Parameter sound
+    zh_Hans: 参数 sound
+  llm_description: Parameter sound
+  form: form
+  default: 'off'
+  options:
+  - value: 'on'
+    label:
+      en_US: 'true'
+      zh_Hans: 开启
+  - value: 'off'
+    label:
+      en_US: 'false'
+      zh_Hans: 关闭
+- name: cfg_scale
+  type: number
+  required: false
+  label:
+    en_US: CFG Scale
+    zh_Hans: 提示词相关性
+  human_description:
+    en_US: Parameter cfg_scale
+    zh_Hans: 参数 cfg_scale
+  llm_description: Parameter cfg_scale
+  form: form
+  default: 0.5
+  options: []
+- name: mode
+  type: select
+  required: false
+  label:
+    en_US: Mode
+    zh_Hans: 模式
+  human_description:
+    en_US: Parameter mode
+    zh_Hans: 参数 mode
+  llm_description: Parameter mode
+  form: form
+  default: std
+  options:
+  - value: std
+    label:
+      en_US: Standard
+      zh_Hans: 标准
+  - value: pro
+    label:
+      en_US: Pro
+      zh_Hans: 高品质
+- name: aspect_ratio
+  type: select
+  required: false
+  label:
+    en_US: Aspect Ratio
+    zh_Hans: 画面比例
+  human_description:
+    en_US: Parameter aspect_ratio
+    zh_Hans: 参数 aspect_ratio
+  llm_description: Parameter aspect_ratio
+  form: form
+  default: '16:9'
+  options:
+  - value: '16:9'
+    label:
+      en_US: '969'
+      zh_Hans: '969'
+  - value: '9:16'
+    label:
+      en_US: '556'
+      zh_Hans: '556'
+  - value: '1:1'
+    label:
+      en_US: '61'
+      zh_Hans: '61'
+- name: duration
+  type: select
+  required: false
+  label:
+    en_US: Duration
+    zh_Hans: 时长
+  human_description:
+    en_US: Parameter duration
+    zh_Hans: 参数 duration
+  llm_description: Parameter duration
+  form: form
+  options:
+  - value: '3'
+    label:
+      en_US: 3s
+      zh_Hans: 3秒
+  - value: '5'
+    label:
+      en_US: 5s
+      zh_Hans: 5秒
+  - value: '10'
+    label:
+      en_US: 10s
+      zh_Hans: 10秒
+  - value: '15'
+    label:
+      en_US: 15s
+      zh_Hans: 15秒
+- name: watermark
+  type: select
+  required: false
+  label:
+    en_US: Watermark
+    zh_Hans: 水印
+  human_description:
+    en_US: Parameter watermark
+    zh_Hans: 参数 watermark
+  llm_description: Parameter watermark
+  form: form
+  default: 'false'
+  options:
+  - value: 'true'
+    label:
+      en_US: Enabled
+      zh_Hans: 启用
+  - value: 'false'
+    label:
+      en_US: Disabled
+      zh_Hans: 禁用
+- name: callback_url
+  type: string
+  required: false
+  label:
+    en_US: Callback URL
+    zh_Hans: 回调地址
+  human_description:
+    en_US: Parameter callback_url
+    zh_Hans: 参数 callback_url
+  llm_description: Parameter callback_url
+  form: form
+  options: []
+- name: external_task_id
+  type: string
+  required: false
+  label:
+    en_US: External Task ID
+    zh_Hans: 自定义任务ID
+  human_description:
+    en_US: Parameter external_task_id
+    zh_Hans: 参数 external_task_id
+  llm_description: Parameter external_task_id
+  form: form
+  options: []
+extra:
+  python:
+    source: tools/text_2_video_create.py

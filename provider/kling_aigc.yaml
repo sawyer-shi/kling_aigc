@@ -1,0 +1,52 @@
+identity:
+  author: "sawyer-shi"
+  name: "kling_aigc"
+  label:
+    en_US: "Kling AIGC"
+    zh_Hans: "Kling AIGC"
+  description:
+    en_US: "Kling AIGC for video, image, audio generation and editing"
+    zh_Hans: "Kling AIGC 视频+图片+音频生成和编辑工具"
+  icon: "icon.png"
+credentials_for_provider:
+  access_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: "Access Key"
+      zh_Hans: "访问密钥(Access Key)"
+    placeholder:
+      en_US: "Enter your Kling AI Access Key"
+      zh_Hans: "请输入你的可灵AI访问密钥"
+    help:
+      en_US: "Get your Access Key from Kling AI console"
+      zh_Hans: "从可灵AI控制台获取你的访问密钥"
+  secret_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: "Secret Key"
+      zh_Hans: "密钥(Secret Key)"
+    placeholder:
+      en_US: "Enter your Kling AI Secret Key"
+      zh_Hans: "请输入你的可灵AI密钥"
+    help:
+      en_US: "Get your Secret Key from Kling AI console"
+      zh_Hans: "从可灵AI控制台获取你的密钥"
+tools:
+  - tools/omni_video_create.yaml
+  - tools/omni_video_query.yaml
+  - tools/text_2_video_create.yaml
+  - tools/text_2_video_query.yaml
+  - tools/image_2_video_create.yaml
+  - tools/image_2_video_query.yaml
+  - tools/omni_image_create.yaml
+  - tools/omni_image_query.yaml
+  - tools/image_generation_create.yaml
+  - tools/image_generation_query.yaml
+  - tools/element_create.yaml
+  - tools/element_query.yaml
+  - tools/element_delete.yaml
+extra:
+  python:
+    source: provider/kling_aigc.py
