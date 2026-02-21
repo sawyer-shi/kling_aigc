@@ -65,13 +65,14 @@ class ElementQueryTool(Tool):
             return
 
         try:
-            resp_data = response.json()
+            resp_data = json.loads(response.text, parse_int=str)
         except json.JSONDecodeError as exc:
             logger.error("Failed to parse JSON: %s", exc)
             yield self.create_text_message("❌ API 响应解析失败（非JSON）")
             return
 
-        if resp_data.get("code") != 0:
+        code = resp_data.get("code")
+        if str(code) != "0":
             msg = f"❌ 查询失败: {resp_data.get('message', '未知错误')}"
             logger.error(msg)
             yield self.create_text_message(msg)
@@ -83,7 +84,7 @@ class ElementQueryTool(Tool):
         task_status_msg = data.get("task_status_msg")
         created_at = format_timestamp(data.get("created_at"))
         updated_at = format_timestamp(data.get("updated_at"))
-        task_result = data.get("task_result", {})
+        task_result = data.get("task_result")
 
         yield self.create_text_message("✅ 查询成功")
         yield self.create_text_message(f"📊 状态: {task_status}")
@@ -92,15 +93,47 @@ class ElementQueryTool(Tool):
         yield self.create_text_message(f"🕒 创建时间: {created_at}")
         yield self.create_text_message(f"🕒 更新时间: {updated_at}")
 
+        element_source = None
         if isinstance(task_result, dict):
-            element_id = task_result.get("element_id")
-            element_name = task_result.get("element_name")
-            reference_type = task_result.get("reference_type")
+            elements = task_result.get("elements")
+            if isinstance(elements, list) and elements:
+                element_source = elements[0]
+            else:
+                element_source = task_result
+        elif isinstance(data, dict):
+            element_source = data
+
+        if isinstance(element_source, dict):
+            element_id = element_source.get("element_id")
+            element_name = element_source.get("element_name")
+            element_description = element_source.get("element_description")
+            reference_type = element_source.get("reference_type") or element_source.get(
+                "element_type"
+            )
+            owned_by = element_source.get("owned_by")
+            status = element_source.get("status")
             if element_id:
                 yield self.create_text_message(f"🧩 主体ID: {element_id}")
             if element_name:
                 yield self.create_text_message(f"🏷️ 主体名称: {element_name}")
+            if element_description:
+                yield self.create_text_message(f"📝 主体描述: {element_description}")
             if reference_type:
-                yield self.create_text_message(f"🔧 类型: {reference_type}")
+                yield self.create_text_message(f"🔧 参考类型: {reference_type}")
+            if status:
+                yield self.create_text_message(f"✅ 主体状态: {status}")
+            if owned_by:
+                yield self.create_text_message(f"👤 来源: {owned_by}")
+            if not any(
+                [
+                    element_id,
+                    element_name,
+                    element_description,
+                    reference_type,
+                    owned_by,
+                    status,
+                ]
+            ):
+                yield self.create_text_message("ℹ️ 响应中未包含主体详细信息")
 
         yield self.create_json_message(resp_data)

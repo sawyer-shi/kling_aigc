@@ -9,7 +9,7 @@ import requests
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
-from tools.utils import get_api_token, parse_json_param
+from tools.utils import get_api_token, parse_json_param, resolve_files_to_list, resolve_media_input
 
 logger = logging.getLogger(__name__)
 
@@ -54,6 +54,17 @@ class ElementCreateTool(Tool):
         )
         if element_image_list:
             payload["element_image_list"] = element_image_list
+
+        frontal_image = resolve_media_input(tool_parameters.get("element_frontal_image"))
+        refer_images = tool_parameters.get("element_refer_images")
+        refer_image_list = (
+            resolve_files_to_list(refer_images, "image_url") if refer_images else []
+        )
+        if frontal_image or refer_image_list:
+            payload["element_image_list"] = {
+                "frontal_image": frontal_image,
+                "refer_images": refer_image_list,
+            }
 
         element_video_list = parse_json_param(
             tool_parameters.get("element_video_list"), "element_video_list"
