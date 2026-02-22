@@ -19,6 +19,7 @@ A Dify plugin that integrates Kling AI 3.0 models for video, image, and element 
 3. Create tasks and query results
 
 ## Key Features
+<img width="360" height="949" alt="CN" src="https://github.com/user-attachments/assets/4e3b8700-8081-455a-b995-f51f44ea9781" /><img width="358" height="954" alt="EN" src="https://github.com/user-attachments/assets/246727be-6476-47cb-ab72-8460d2fec768" />
 
 - **Video Generation**: Omni-video, text-to-video, image-to-video
 - **Image Generation**: Omni-image and image generation tasks
