@@ -19,6 +19,7 @@
 3. 创建任务并查询结果
 
 ## 核心特性
+<img width="360" height="949" alt="CN" src="https://github.com/user-attachments/assets/4e3b8700-8081-455a-b995-f51f44ea9781" /><img width="358" height="954" alt="EN" src="https://github.com/user-attachments/assets/246727be-6476-47cb-ab72-8460d2fec768" />
 
 - **视频生成**: Omni 视频、文生视频、图生视频
 - **图像生成**: Omni 图像与图像生成任务
