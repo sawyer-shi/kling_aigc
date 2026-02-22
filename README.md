@@ -80,5 +80,5 @@ A Dify plugin that integrates Kling AI 3.0 models for video, image, and element 
 - **Author**: https://github.com/sawyer-shi
 - **Email**: sawyer36@foxmail.com
 - **License**: Apache License 2.0
-- **Source Code**: https://github.com/sawyer-shi/kling_aigc
+- **Source Code**: https://github.com/sawyer-shi/dify-plugins-kling_aigc
 - **Support**: Through Dify platform and GitHub Issues

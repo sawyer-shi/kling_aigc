@@ -80,5 +80,5 @@
 - **作者**: https://github.com/sawyer-shi
 - **邮箱**: sawyer36@foxmail.com
 - **许可证**: Apache License 2.0
-- **源代码**: https://github.com/sawyer-shi/kling_aigc
+- **源代码**: https://github.com/sawyer-shi/dify-plugins-kling_aigc
 - **支持**: 通过 Dify 平台和 GitHub Issues
