@@ -7,7 +7,7 @@ identity:
   description:
     en_US: "Kling AIGC: Support full-generation and editing operations for images and videos, using the latest Kling models (3-Omini, O1, kling-v3, kling-v2.6, and kling-v2.5)."
     zh_Hans: "可灵AIGC：支持全套图片+视频的生成、编辑等操作，使用最新的可灵模型(3-Omini、O1、kling-v3以及kling-v2.6、kling-v2.5、kling-v2.1和kling-v2.0)。"
-  icon: "icon.png"
+  icon: "icon.svg"
 credentials_for_provider:
   access_key:
     type: secret-input
